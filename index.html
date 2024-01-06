@@ -5,10 +5,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AWTI Project</title>
+    <style>
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
 </head>
 
 <body bgcolor="yellow">
     <h6>AWTI</h6>
+
+    <h1>Form:</h1>
+    <form action="/submit_form" method="post" autocomplete="on" novalidate>
+
+        <!-- Text Input -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required maxlength="50" placeholder="Enter your name">
+
+        <!-- Email Input -->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="user@example.com">
+
+        <!-- Password Input -->
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required minlength="8">
+
+        <!-- Radio Buttons -->
+        <fieldset>
+            <legend>Gender:</legend>
+            <label><input type="radio" name="gender" value="male" checked> Male</label>
+            <label><input type="radio" name="gender" value="female"> Female</label>
+            <label><input type="radio" name="gender" value="other"> Other</label>
+        </fieldset>
+
+        <!-- Checkboxes -->
+        <fieldset>
+            <legend>Interests:</legend>
+            <label><input type="checkbox" name="interests" value="coding"> Coding</label>
+            <label><input type="checkbox" name="interests" value="reading"> Reading</label>
+            <label><input type="checkbox" name="interests" value="traveling"> Traveling</label>
+        </fieldset>
+
+        <!-- Dropdown Select -->
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+            <option value="usa">United States</option>
+            <option value="canada">Canada</option>
+            <option value="uk">United Kingdom</option>
+            <!-- Add more options as needed -->
+        </select>
+
+        <!-- Date Input -->
+        <label for="birthdate">Birthdate:</label>
+        <input type="date" id="birthdate" name="birthdate">
+
+        <!-- Textarea for Comments -->
+        <fieldset>
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" rows="4" cols="50"
+                placeholder="Write your comments here..."></textarea>
+        </fieldset>
+
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <audio controls autoplay>
+        <source src="mp3Audio.mp3" type="audio/mp3">
+    </audio>
+
+    <canvas id="myCanvas" width="400" height="200"></canvas>
+
+    <script>
+        // Get the canvas element and its context
+        var canvas = document.getElementById('myCanvas');
+        var ctx = canvas.getContext('2d');
+
+        // Draw a rectangle
+        ctx.fillStyle = '#e0e0e0';
+        ctx.fillRect(50, 50, 300, 100);
+
+        // Draw a circle inside the rectangle
+        var centerX = 50 + 150; // X-coordinate of the center of the rectangle
+        var centerY = 50 + 50;  // Y-coordinate of the center of the rectangle
+        var radius = 40;        // Radius of the circle
+
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+        ctx.fillStyle = '#ff0000';
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = '#000';
+        ctx.stroke();
+    </script>
+
 </body>
 
 </html>
