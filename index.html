@@ -13,38 +13,38 @@
         .image-container {
             position: relative;
             width: 300px;
+            /* Adjust the width as needed */
             height: 200px;
-            overflow: hidden;
+            /* Adjust the height as needed */
         }
 
-        /* Set the style for both images */
-        .image-container img {
+        .hover-image {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            transition: opacity 0.3s ease-in-out;
         }
 
-        /* Hide the second image by default */
-        .image-container img:nth-child(2) {
-            opacity: 0;
+        .image-container:hover .hover-image {
+            display: block;
         }
 
-        /* Show the second image on hover */
-        .image-container:hover img:nth-child(1) {
-            opacity: 0;
-        }
-
-        .image-container:hover img:nth-child(2) {
-            opacity: 1;
+        .original-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Preserve aspect ratio while covering the container */
         }
     </style>
 </head>
 
-<body bgcolor="yellow">
+<body>
     <h1>AWTI</h1>
 
     <h1>Form:</h1>
-    <form action="/submit_form" method="post" autocomplete="on" novalidate>
+    <form action="" method="post" autocomplete="on" novalidate>
 
         <!-- Text Input -->
         <label for="name">Name:</label>
@@ -56,7 +56,8 @@
 
         <!-- Password Input -->
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required minlength="8">
+        <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+            minlength="8" required>
 
         <!-- Radio Buttons -->
         <fieldset>
@@ -80,7 +81,10 @@
             <option value="usa">United States</option>
             <option value="canada">Canada</option>
             <option value="uk">United Kingdom</option>
-            <!-- Add more options as needed -->
+            <option value="romania">Romania</option>
+            <option value="spain">Spain</option>
+            <option value="france">France</option>
+            <option value="germany">Germany</option>
         </select>
 
         <!-- Date Input -->
@@ -100,11 +104,13 @@
 
     </form>
 
+    <h1>Image (hover on it):</h1>
     <div class="image-container">
-        <img src="first_image.jpg" alt="First Image">
-        <img src="second_image.jpg" alt="Second Image">
+        <img src="resources/image1.jpg" alt="Original Image" class="original-image" id="image">
+        <img src="resources/image2.jpg" alt="Hover Image" class="hover-image" id="hover-image">
     </div>
 
+    <h1>Drawings:</h1>
     <canvas id="myCanvas" width="400" height="200"></canvas>
 
     <script>
@@ -129,6 +135,22 @@
         ctx.strokeStyle = '#000';
         ctx.stroke();
     </script>
+
+    <h1>Video:</h1>
+    <video width="640" height="360" controls loop poster="resources/image3.jpg">
+        <source src="resources/video.mp4" type="video/mp4">
+    </video>
+
+    <h1>Harvard University Location</h1>
+
+    <iframe width="600" height="450" frameborder="0" style="border:0" allowfullscreen
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2959.503696309034!2d-71.11870818464723!3d42.37361197918564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e379f63f253f6f%3A0x9836d9024d10f59!2sHarvard%20University!5e0!3m2!1sen!2sus!4v1644134296782!5m2!1sen!2sus"
+        allowfullscreen></iframe>
+
+    <h1>Audio:</h1>
+    <audio controls>
+        <source src="resources/sound1.mp3" type="audio/mp3">
+    </audio>
 
 </body>
 
