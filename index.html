@@ -111,29 +111,40 @@
     </div>
 
     <h1>Drawings:</h1>
-    <canvas id="myCanvas" width="400" height="200"></canvas>
+    <canvas id="myCanvas" width="400" height="400"></canvas>
 
     <script>
-        // Get the canvas element and its context
+        // Get the canvas element using its id
         var canvas = document.getElementById('myCanvas');
+
+        // Get the 2D rendering context
         var ctx = canvas.getContext('2d');
+        var ctx2 = canvas.getContext('2d');
 
-        // Draw a rectangle
-        ctx.fillStyle = '#e0e0e0';
-        ctx.fillRect(50, 50, 300, 100);
-
-        // Draw a circle inside the rectangle
-        var centerX = 50 + 150; // X-coordinate of the center of the rectangle
-        var centerY = 50 + 50;  // Y-coordinate of the center of the rectangle
-        var radius = 40;        // Radius of the circle
-
+        //Draw a triangle
         ctx.beginPath();
-        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
-        ctx.fillStyle = '#ff0000';
-        ctx.fill();
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = '#000';
+        ctx.moveTo(150, 150);
+        ctx.lineTo(100, 300);
+        ctx.lineTo(300, 300);
+        ctx.closePath();
+
+        // the outline
+        ctx.lineWidth = 10;
+        ctx.strokeStyle = '#666666';
         ctx.stroke();
+
+        // the fill color
+        ctx.fillStyle = "#FFCC00";
+        ctx.fill();
+
+        // Draw a rectangle on the canvas
+        ctx2.fillStyle = '#3498db'; // Set the fill color to a blue shade
+        ctx2.fillRect(50, 40, 200, 100); // Draw a rectangle at (50, 50) with a width of 200 and height of 100
+
+        // Draw text on the canvas
+        ctx2.font = '20px Arial';
+        ctx2.fillStyle = '#fff'; // Set the fill color to white
+        ctx2.fillText('Hello, Canvas!', 75, 100); // Draw the text at (70, 100)
     </script>
 
     <h1>Video:</h1>
@@ -141,11 +152,12 @@
         <source src="resources/video.mp4" type="video/mp4">
     </video>
 
-    <h1>Harvard University Location</h1>
+    <h1>RAU Location:</h1>
 
-    <iframe width="600" height="450" frameborder="0" style="border:0" allowfullscreen
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2959.503696309034!2d-71.11870818464723!3d42.37361197918564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e379f63f253f6f%3A0x9836d9024d10f59!2sHarvard%20University!5e0!3m2!1sen!2sus!4v1644134296782!5m2!1sen!2sus"
-        allowfullscreen></iframe>
+    <iframe width="600" height="450" frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.106951319623!2d26.090986115731823!3d44.460239979103935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1fe9c1e0e3691%3A0xa3c4e894ecbd8da6!2sRomanian%20American%20University!5e0!3m2!1sen!2sro!4v1643065121874"
+        allowfullscreen>
+    </iframe>
 
     <h1>Audio:</h1>
     <audio controls>
