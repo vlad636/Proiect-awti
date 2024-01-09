@@ -37,6 +37,13 @@
             object-fit: cover;
             /* Preserve aspect ratio while covering the container */
         }
+
+        #locationDateTime {
+            padding: 20px;
+            border: 1px solid #000;
+            max-width: 400px;
+            margin: 50px auto;
+        }
     </style>
 </head>
 
@@ -163,6 +170,36 @@
     <audio controls>
         <source src="resources/sound1.mp3" type="audio/mp3">
     </audio>
+
+    <h1>My Location and date:</h1>
+    <div id="locationDateTime"></div>
+
+    <script>
+        // Function to get the current date and time
+        function getCurrentDateTime() {
+            var now = new Date();
+            return now.toLocaleString();
+        }
+
+        // Function to get the user's location
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                document.getElementById("locationDateTime").innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+
+        function showPosition(position) {
+            var locationDateTimeDiv = document.getElementById("locationDateTime");
+            var locationInfo = "Your location: Latitude " + position.coords.latitude.toFixed(4) + ", Longitude " + position.coords.longitude.toFixed(4);
+            var dateTimeInfo = "Current Date/Time: " + getCurrentDateTime();
+
+            locationDateTimeDiv.innerHTML = "<p>" + locationInfo + "</p><p>" + dateTimeInfo + "</p>";
+        }
+        // Call the function to get the user's location
+        getLocation();
+    </script>
 
 </body>
 
