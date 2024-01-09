@@ -44,11 +44,36 @@
             max-width: 400px;
             margin: 50px auto;
         }
+        .draggable {
+      width: 100px;
+      height: 100px;
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      text-align: center;
+      line-height: 100px;
+      cursor: move;
+    }
     </style>
 </head>
 
 <body bgcolor="green">
-    <h1>AWTI</h1>
+
+
+    <!--element drag&drop -- nu stim daca ramane !!!!!-->
+
+
+    <div id="draggableElement" class="draggable" draggable="true">
+        AWTI
+      </div>
+      
+      <script>
+        const draggableElement = document.getElementById('draggableElement');
+      
+        draggableElement.addEventListener('dragstart', (event) => {
+    event.dataTransfer.setData('text/plain', 'Dragged Element');
+        });
+      </script>
+    
 
     <h1>Form:</h1>
     <form action="" method="post" autocomplete="on" novalidate>
@@ -68,10 +93,10 @@
 
         <!-- Radio Buttons -->
         <fieldset>
-            <legend>Gender:</legend>
-            <label><input type="radio" name="gender" value="male" checked> Male</label>
-            <label><input type="radio" name="gender" value="female"> Female</label>
-            <label><input type="radio" name="gender" value="other"> Other</label>
+            <legend>sex:</legend>
+            <label><input type="radio" name="sex" value="barbat" checked> Barbat</label>
+            <label><input type="radio" name="sex" value="femeie"> Femeie</label>
+            <label><input type="radio" name="sex" value="other"> Other</label>
         </fieldset>
 
         <!-- Checkboxes -->
