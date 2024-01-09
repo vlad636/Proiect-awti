@@ -8,7 +8,8 @@
     <link rel="stylesheet" type="text/css" href="index.css" />
 </head>
 
-<body bgcolor="green">
+<body ondragover="dragOver(event)" ondrop="drop(event)", bgcolor="green">
+    <!--element marcat cu marker-->
     <p>Aceasta este o propozitie cu un element <mark>marcat cu "marker"</mark></p>
     <!--cerc SVG-->
     <svg width="100" height="100">
@@ -38,9 +39,17 @@
       </div>
 
     <!--element drag&drop -- nu stim daca ramane !!!!!-->
-    <div id="draggableElement" class="draggable" draggable="true">
+    <div id="dragElement" draggable="true">
+        Drag me!
+      </div>
+      <div id="dropArea">
+        Drop here! (Everywhere on the page)
+      </div>
+    
+    <!--<div id="draggableElement" class="draggable" draggable="true">
         AWTI
     </div>
+-->
 
 
     <h1>Form:</h1>

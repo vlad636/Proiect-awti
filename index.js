@@ -10,11 +10,20 @@ function getRange() {
 
 
 //drag&drop
-const draggableElement = document.getElementById('draggableElement');
+    function dragOver(event) {
+      event.preventDefault();
+    }
 
-draggableElement.addEventListener('dragstart', (event) => {
-    event.dataTransfer.setData('text/plain', 'Dragged Element');
-});
+    function drop(event) {
+      event.preventDefault();
+      // Perform actions when the element is dropped
+      console.log('Element dropped!');
+    }
+//const draggableElement = document.getElementById('draggableElement');
+
+//draggableElement.addEventListener('dragstart', (event) => {
+   // event.dataTransfer.setData('text/plain', 'Dragged Element');
+//});
 
 
 
