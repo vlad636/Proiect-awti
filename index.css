@@ -46,3 +46,16 @@ canvas {
     line-height: 100px;
     cursor: move;
 }
+
+.image-fieldset {
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-container,
+.details-image {
+    width: 48%;
+    /* Set the width of each div (adjust as needed) */
+    box-sizing: border-box;
+    /* Include padding and border in the width */
+}

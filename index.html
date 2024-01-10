@@ -8,123 +8,126 @@
     <link rel="stylesheet" type="text/css" href="index.css" />
 </head>
 
-<body ondragover="dragOver(event)" ondrop="drop(event)", bgcolor="green">
-    <!--element marcat cu marker-->
-    <p>Aceasta este o propozitie cu un element <mark>marcat cu "marker"</mark></p>
-    <!--cerc SVG-->
-    <svg width="100" height="100">
-        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="2" fill="red" />
-      </svg>
-      <details>
-        <summary>Mai multe informatii despre cerc</summary>
-        <p>Cercul este rosu cu marginea negra</p>
-      </details>
-      <br>
-
-      <label for="myBrowser">Choose a browser from this list:</label>
-    <input list="browsers" id="myBrowser" name="myBrowser" />
-    <datalist id="browsers">
-        <option value="Chrome"></option>
-        <option value="Firefox"></option>
-        <option value="Opera"></option>
-        <option value="Safari"></option>
-        <option value="Microsoft Edge"></option>
-    </datalist>
-
-      
+<body ondragover="dragOver(event)" ondrop="drop(event)">
     <!--content editabil-->
-
-    <div contenteditable="true">
-        ACEST TEXT POATE FI EDITAT DE UTILIZATOR
-      </div>
+    <h1 contenteditable="true">Proiect AWTI...</h1>
 
     <!--element drag&drop -- nu stim daca ramane !!!!!-->
     <div id="dragElement" draggable="true">
         Drag me!
-      </div>
-      <div id="dropArea">
+    </div>
+    <div id="dropArea">
         Drop here! (Everywhere on the page)
-      </div>
-    
+    </div>
+
     <!--<div id="draggableElement" class="draggable" draggable="true">
         AWTI
     </div>
 -->
 
+    <h1><mark>Form:</mark></h1>
+    <form action="success.html" method="post" autocomplete="on">
 
-    <h1>Form:</h1>
-    <form action="" method="post" autocomplete="on" novalidate>
+        <fieldset>
+            <legend>Date personale</legend>
+            <!-- Text Input -->
+            <label for="name">Nume:</label>
+            <input type="text" id="name" name="name" required maxlength="50" placeholder="Numele tau...">
 
-        <!-- Text Input -->
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required maxlength="50" placeholder="Enter your name">
+            <!-- Email Input -->
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="user@example.com">
 
-        <!-- Email Input -->
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required placeholder="user@example.com">
-
-        <!-- Password Input -->
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
-            minlength="8" required>
+            <!-- Password Input -->
+            <label for="password">Parola:</label>
+            <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
+                minlength="8" required>
+        </fieldset>
 
         <!-- Radio Buttons -->
         <fieldset>
-            <legend>sex:</legend>
-            <label><input type="radio" name="sex" value="barbat" checked> Barbat</label>
-            <label><input type="radio" name="sex" value="femeie"> Femeie</label>
-            <label><input type="radio" name="sex" value="other"> Other</label>
+            <legend>Gen</legend>
+            <label><input type="radio" name="gen" value="barbat" checked>Masculin</label>
+            <label><input type="radio" name="gen" value="femeie">Feminin</label>
         </fieldset>
 
         <!-- Checkboxes -->
         <fieldset>
-            <legend>Interests:</legend>
-            <label><input type="checkbox" name="interests" value="coding"> Coding</label>
-            <label><input type="checkbox" name="interests" value="reading"> Reading</label>
-            <label><input type="checkbox" name="interests" value="traveling"> Traveling</label>
+            <legend>Activitati</legend>
+            <label><input type="checkbox" name="activitati" value="calatorie">Calatorie</label>
+            <label><input type="checkbox" name="activitati" value="citit">Citit</label>
+            <label><input type="checkbox" name="activitati" value="sport">Sport</label>
         </fieldset>
 
-        <label>Range</label>
-        <input id="pi_input" type="range" min="0" max="3.14" step="any" />
-        <button onclick="getRange()">Show value <output id="value"></output></button>
+        <fieldset>
+            <legend>Varsta</legend>
+            <input type="range" id="varsta" name="varsta" min="1" max="100" value="18" step="1"
+                oninput="updateAgeValue()">
+            <span id="ageOutput"></span>
+        </fieldset>
+
 
         <!-- Dropdown Select -->
-        <label for="country">Country:</label>
-        <select id="country" name="country">
-            <option value="usa">United States</option>
-            <option value="canada">Canada</option>
-            <option value="uk">United Kingdom</option>
-            <option value="romania">Romania</option>
-            <option value="spain">Spain</option>
-            <option value="france">France</option>
-            <option value="germany">Germany</option>
-        </select>
+        <fieldset>
+            <legend for="tara">Tara</legend>
+            <input list="tari" id="tara" />
+            <datalist id="tari">
+                <option value="Statele Unite"></option>
+                <option value="Canada"></option>
+                <option value="Anglia"></option>
+                <option value="Romania"></option>
+                <option value="Spania"></option>
+                <option value="Franta"></option>
+                <option value="Germania"></option>
+            </datalist>
+        </fieldset>
 
-        <!-- Date Input -->
-        <label for="birthdate">Birthdate:</label>
-        <input type="date" id="birthdate" name="birthdate">
+        <fieldset>
+            <legend for="birthdate">Data nasterii</legend>
+            <input type="date" id="birthdate" name="birthdate">
+        </fieldset>
+
 
         <!-- Textarea for Comments -->
         <fieldset>
-            <label for="comments">Comments:</label>
-            <textarea id="comments" name="comments" rows="4" cols="50"
-                placeholder="Write your comments here..."></textarea>
+            <legend for="comentarii">Comentarii</legend>
+            <textarea id="comentarii" name="comentarii" rows="4" cols="50" placeholder="Scrie aici..."></textarea>
         </fieldset>
 
 
         <!-- Submit Button -->
-        <button type="submit">Submit</button>
+        <input type="submit" value="Submit">
 
     </form>
 
-    <h1>Image (hover on it):</h1>
-    <div class="image-container">
-        <img src="resources/image1.jpg" alt="Original Image" class="original-image" id="image">
-        <img src="resources/image2.jpg" alt="Hover Image" class="hover-image" id="hover-image">
-    </div>
+    <fieldset class="image-fieldset">
+        <legend style="font-size: 30px; font-weight: bold;">Imagine:</legend>
+        <div class="image-container">
+            <img src="resources/image1.jpg" alt="Original Image" class="original-image" id="image" style="width: 30%;">
+            <img src="resources/image2.jpg" alt="Hover Image" class="hover-image" id="hover-image" style="width: 30%;">
+        </div>
+        <div class="details-image">
+            <details>
+                <summary>Mai multe informatii despre imagine</summary>
+                <p>Daca dai hover peste imagine se va schimba</p>
+            </details>
+        </div>
+    </fieldset>
+
 
     <h1>Drawings:</h1>
     <canvas id="myCanvas" width="400" height="400"></canvas>
+    <br>
+
+    <!--cerc SVG-->
+    <svg width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="2" fill="red" />
+    </svg>
+    <details>
+        <summary>Mai multe informatii despre cerc</summary>
+        <p>Cercul este rosu cu marginea negra</p>
+    </details>
+    <br>
 
     <h1>Video:</h1>
     <video width="640" height="360" controls loop poster="resources/image3.jpg">
