@@ -86,3 +86,13 @@ function showPosition(position) {
 }
 //se apeleaza functia de getLocation
 getLocation();
+
+
+// Create a new Web Worker
+const myWorker = new Worker('worker.js');
+
+// Listen for messages from the Web Worker
+myWorker.onmessage = function (e) {
+    // Update the displayed seconds counter
+    document.getElementById('secondsCounter').textContent = e.data;
+};
