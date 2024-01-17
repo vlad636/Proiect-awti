@@ -9,22 +9,6 @@ function updateAgeValue() {
 
 
 
-//drag&drop
-function dragOver(event) {
-    event.preventDefault();
-}
-
-function drop(event) {
-    event.preventDefault();
-    // Perform actions when the element is dropped
-    console.log('Element dropped!');
-}
-//const draggableElement = document.getElementById('draggableElement');
-
-//draggableElement.addEventListener('dragstart', (event) => {
-// event.dataTransfer.setData('text/plain', 'Dragged Element');
-//});
-
 
 //se preia elementul de canvas
 var canvas = document.getElementById('myCanvas');
@@ -32,6 +16,19 @@ var canvas = document.getElementById('myCanvas');
 //facem un context pe care o sa l folosim mai departe pt diferite actiuni
 var ctx = canvas.getContext('2d');
 var ctx2 = canvas.getContext('2d');
+var ctx3 = canvas.getContext('2d');
+
+ctx3.rect(0, 0, canvas.width, canvas.height);
+
+// add linear gradient
+var grd = ctx3.createLinearGradient(0, 0, canvas.width, canvas.height);
+// light blue
+grd.addColorStop(0, '#8ED6FF');
+// dark blue
+grd.addColorStop(1, '#004CB3');
+ctx3.fillStyle = grd;
+ctx3.fill();
+
 
 //incepem trasarea liniilor pt un triunghi
 ctx.beginPath();
@@ -57,7 +54,6 @@ ctx2.fillRect(50, 40, 200, 100); // Draw a rectangle at (50, 50) with a width of
 ctx2.font = '20px Arial';
 ctx2.fillStyle = '#fff'; // Set the fill color to white
 ctx2.fillText('Hello, Canvas!', 75, 100); // Draw the text at (75, 100)
-
 
 
 //Geolocatia
@@ -96,3 +92,17 @@ myWorker.onmessage = function (e) {
     // Update the displayed seconds counter
     document.getElementById('secondsCounter').textContent = e.data;
 };
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}

@@ -5,26 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AWTI Project</title>
-    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="stylesheet" type="text/css" href="/index/index.css" />
 </head>
 
-<body ondragover="dragOver(event)" ondrop="drop(event)">
+<body>
+
+    <nav>
+        <a href="index.html">Main Page</a>
+        <a href="video.html">Video</a>
+        <a href="#">Tab 3</a>
+        <!-- Add more tabs as needed -->
+    </nav>
+
     <!--content editabil-->
     <h1 contenteditable="true">Proiect AWTI...</h1>
     <p>Seconds on the page: <span id="secondsCounter"></span></p>
 
     <!--element drag&drop -- nu stim daca ramane !!!!!-->
-    <div id="dragElement" draggable="true">
-        Drag me!
-    </div>
-    <div id="dropArea">
-        Drop here! (Everywhere on the page)
-    </div>
+    <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone</div>
 
-    <!--<div id="draggableElement" class="draggable" draggable="true">
-        AWTI
-    </div>
--->
+    <img id="drag1" src="resources/image2.jpg" draggable="true" ondragstart="drag(event)" width="300" height="200">
 
     <h1><mark>Form:</mark></h1>
     <form action="success.html" method="post" autocomplete="on">
@@ -88,6 +88,12 @@
             <input type="date" id="birthdate" name="birthdate">
         </fieldset>
 
+        <!-- Input de tip fisier -->
+        <fieldset>
+            <legend>Alege un fisier</legend>
+            <input type="file">
+        </fieldset>
+
 
         <!-- Textarea for Comments -->
         <fieldset>
@@ -130,17 +136,6 @@
     </details>
     <br>
 
-    <h1>Video:</h1>
-    <video width="640" height="360" controls loop poster="resources/image3.jpg">
-        <source src="resources/video.mp4" type="video/mp4">
-    </video>
-    <div>
-        <details>
-            <summary>Mai multe informatii despre video</summary>
-            <p>Atunci cand videoclipul nu este rulat apare o imagine drept poster pana dai start la video</p>
-        </details>
-    </div>
-
     <h1>RAU Location:</h1>
 
     <iframe width="600" height="450" frameborder="0" style="border:0"
@@ -156,7 +151,7 @@
     <h1>My Location and date:</h1>
     <div id="locationDateTime"></div>
 
-    <script src="index.js"></script>
+    <script src="/index/index.js"></script>
 </body>
 
 </html>
