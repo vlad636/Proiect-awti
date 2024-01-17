@@ -13,7 +13,7 @@
     <nav>
         <a href="index.html">Main Page</a>
         <a href="video.html">Video</a>
-        <a href="#">Tab 3</a>
+        <a href="form.html">Formular</a>
         <!-- Add more tabs as needed -->
     </nav>
 
@@ -25,87 +25,6 @@
     <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">Drop Zone</div>
 
     <img id="drag1" src="resources/image2.jpg" draggable="true" ondragstart="drag(event)" width="300" height="200">
-
-    <h1><mark>Form:</mark></h1>
-    <form action="success.html" method="post" autocomplete="on">
-
-        <fieldset>
-            <legend>Date personale</legend>
-            <!-- Text Input -->
-            <label for="name">Nume:</label>
-            <input type="text" id="name" name="name" required maxlength="50" placeholder="Numele tau...">
-
-            <!-- Email Input -->
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required placeholder="user@example.com">
-
-            <!-- Password Input -->
-            <label for="password">Parola:</label>
-            <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$"
-                minlength="8" required>
-        </fieldset>
-
-        <!-- Radio Buttons -->
-        <fieldset>
-            <legend>Gen</legend>
-            <label><input type="radio" name="gen" value="barbat" checked>Masculin</label>
-            <label><input type="radio" name="gen" value="femeie">Feminin</label>
-        </fieldset>
-
-        <!-- Checkboxes -->
-        <fieldset>
-            <legend>Activitati</legend>
-            <label><input type="checkbox" name="activitati" value="calatorie">Calatorie</label>
-            <label><input type="checkbox" name="activitati" value="citit">Citit</label>
-            <label><input type="checkbox" name="activitati" value="sport">Sport</label>
-        </fieldset>
-
-        <fieldset>
-            <legend>Varsta</legend>
-            <input type="range" id="varsta" name="varsta" min="1" max="100" value="18" step="1"
-                oninput="updateAgeValue()">
-            <span id="ageOutput"></span>
-        </fieldset>
-
-
-        <!-- Dropdown Select -->
-        <fieldset>
-            <legend for="tara">Tara</legend>
-            <input list="tari" id="tara" />
-            <datalist id="tari">
-                <option value="Statele Unite"></option>
-                <option value="Canada"></option>
-                <option value="Anglia"></option>
-                <option value="Romania"></option>
-                <option value="Spania"></option>
-                <option value="Franta"></option>
-                <option value="Germania"></option>
-            </datalist>
-        </fieldset>
-
-        <fieldset>
-            <legend for="birthdate">Data nasterii</legend>
-            <input type="date" id="birthdate" name="birthdate">
-        </fieldset>
-
-        <!-- Input de tip fisier -->
-        <fieldset>
-            <legend>Alege un fisier</legend>
-            <input type="file">
-        </fieldset>
-
-
-        <!-- Textarea for Comments -->
-        <fieldset>
-            <legend for="comentarii">Comentarii</legend>
-            <textarea id="comentarii" name="comentarii" rows="4" cols="50" placeholder="Scrie aici..."></textarea>
-        </fieldset>
-
-
-        <!-- Submit Button -->
-        <input type="submit" value="Submit">
-
-    </form>
 
     <fieldset class="image-fieldset">
         <legend style="font-size: 30px; font-weight: bold;">Imagine:</legend>
