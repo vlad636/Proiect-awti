@@ -100,3 +100,8 @@
         box-sizing: border-box;
         /* Include padding and border in the width */
     }
+
+    .center {
+        margin: 0 auto;
+        display: block;
+    }
